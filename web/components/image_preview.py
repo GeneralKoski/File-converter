@@ -5,14 +5,14 @@ import io
 def render_original(col, image, filename):
     with col:
         st.markdown("<h4>Originale</h4>", unsafe_allow_html=True)
-        st.image(image, use_container_width=True)
+        st.image(image, width="stretch")
         st.caption(filename)
 
 
 def render_result(col, result_image, target_format):
     with col:
         st.markdown("<h4>Risultato</h4>", unsafe_allow_html=True)
-        st.image(result_image, use_container_width=True)
+        st.image(result_image, width="stretch")
 
         data, file_ext = _prepare_download(result_image, target_format)
 
@@ -21,7 +21,7 @@ def render_result(col, result_image, target_format):
             data=data,
             file_name=f"processed_image.{file_ext}",
             mime=f"image/{file_ext}",
-            use_container_width=True,
+            width="stretch",
         )
 
 

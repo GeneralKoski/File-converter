@@ -5,6 +5,7 @@ from web.styles import inject_styles
 from web.components.header import render_header
 from web.components.sidebar import render_sidebar, render_action_button
 from web.components.image_preview import render_original, render_result, render_empty_state
+from web.components.loader import GenericLoader
 
 st.set_page_config(page_title="File Converter", layout="wide")
 
@@ -35,14 +36,22 @@ render_original(col1, image, uploaded_file.name)
 if not render_action_button(action, target_format):
     st.stop()
 
-with st.spinner("Elaborazione in corso..."):
-    try:
-        if action == "Converti Formato":
-            result_image = ImageProcessor.convert_format(image, target_format)
-        else:
-            result_image = ImageProcessor.remove_background(image)
-            target_format = "PNG"
+loader = GenericLoader("Elaborazione in corso...", "Analisi dell'immagine...")
 
-        render_result(col2, result_image, target_format)
-    except Exception as e:
-        st.error(f"Errore durante l'elaborazione: {e}")
+try:
+    if action == "Converti Formato":
+        loader.update(subtext=f"Conversione in {target_format}...")
+        result_image = ImageProcessor.convert_format(image, target_format)
+    else:
+        loader.update(subtext="Rimozione dello sfondo...")
+        result_image = ImageProcessor.remove_background(image)
+        target_format = "PNG"
+
+    loader.update("Ottimizzazione...", "Quasi finito!")
+
+    loader.success()
+    render_result(col2, result_image, target_format)
+
+except Exception as e:
+    loader.success()
+    st.error(f"Errore durante l'elaborazione: {e}")

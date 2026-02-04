@@ -25,10 +25,10 @@ def render_action_button(action, target_format):
         return st.sidebar.button(
             f"Converti in {target_format}",
             type="primary",
-            use_container_width=True,
+            width="stretch",
         )
     return st.sidebar.button(
         "Rimuovi Sfondo",
         type="primary",
-        use_container_width=True,
+        width="stretch",
     )
