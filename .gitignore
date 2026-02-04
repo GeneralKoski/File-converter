@@ -24,3 +24,11 @@ dist/
 # OS Specific
 .DS_Store
 Thumbs.db
+
+# Output
+Saved/
+*.log
+
+# IDEs
+.vscode/
+.idea/

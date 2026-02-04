@@ -11,7 +11,15 @@ Per verificare se è installato, apri PowerShell o Prompt dei Comandi e scrivi:
 python --version
 ```
 
-## Installazione
+## Installazione Automatica (Consigliata)
+
+1. Apri la cartella del progetto.
+2. Fai doppio clic su `setup.bat`.
+   Questo creerà l'ambiente virtuale e installerà tutto il necessario.
+
+## Installazione Manuale
+
+Se preferisci fare tutto a mano:
 
 1. Apri la cartella del progetto.
 2. Clicca con il tasto destro in uno spazio vuoto e seleziona "Apri nel Terminale" (o apri PowerShell/CMD e naviga nella cartella).
