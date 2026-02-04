@@ -49,3 +49,12 @@ Se preferisci fare tutto a mano:
    ```powershell
    python main.py
    ```
+
+## Versione Web
+
+1.  Assicurati che l'environment sia attivo.
+2.  Lancia Streamlit:
+    ```powershell
+    streamlit run web_app.py
+    ```
+    Si aprirà automaticamente nel tuo browser.

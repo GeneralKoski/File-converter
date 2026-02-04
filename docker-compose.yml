@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  file-converter:
+    build: .
+    container_name: file-converter
+    restart: always
+    ports:
+      - "8501:8501"
+    volumes:
+      # Persist U2NET models so they don't re-download on every restart
+      - u2net_cache:/root/.u2net
+    environment:
+      - STREAMLIT_SERVER_MAX_UPLOAD_SIZE=10
+
+volumes:
+  u2net_cache:

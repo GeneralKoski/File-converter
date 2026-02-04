@@ -32,3 +32,6 @@ Saved/
 # IDEs
 .vscode/
 .idea/
+
+# Deployment
+DEPLOYMENT.md
