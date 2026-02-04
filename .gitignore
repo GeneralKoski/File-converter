@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / Packaging
+build/
+dist/
+*.egg-info/
+
+# PyInstaller
+*.spec
+
+# PySide6 / Qt
+*.qmlc
+*.jsc
+
+# OS Specific
+.DS_Store
+Thumbs.db
